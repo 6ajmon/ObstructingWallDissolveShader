@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bx1qjm4q3al7x"]
+
+[ext_resource type="Shader" uid="uid://bn451bvxjk8hb" path="res://Src/Level/dissolve.gdshader" id="1_x22se"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_x22se")
+shader_parameter/cube_position = Vector3(0, 0, 0)
+shader_parameter/line_radius = 1.0
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 0.5
+shader_parameter/animation_speed = 0.6
+shader_parameter/wave_amplitude = 0.5
+shader_parameter/rotation_speed = 0.2

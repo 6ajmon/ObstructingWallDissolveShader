@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://da6xoig7o4fk2"]
+
+[ext_resource type="PackedScene" uid="uid://bsrmat2flrtht" path="res://Src/Camera/FreeRoamCamera.tscn" id="1_csqu5"]
+[ext_resource type="Material" uid="uid://bx1qjm4q3al7x" path="res://Src/Level/DissolveShader.tres" id="3_24l41"]
+[ext_resource type="Script" uid="uid://cl3572pp3kiws" path="res://Src/Level/CubeMovement.cs" id="4_bnfkx"]
+[ext_resource type="Script" uid="uid://b37srxi6hni7c" path="res://Src/Level/ShaderUpdater.cs" id="4_yajcb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ijo2"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_o4d63"]
+
+[sub_resource type="Sky" id="Sky_24l41"]
+sky_material = SubResource("PhysicalSkyMaterial_o4d63")
+
+[sub_resource type="Environment" id="Environment_bnfkx"]
+background_mode = 2
+sky = SubResource("Sky_24l41")
+
+[sub_resource type="BoxMesh" id="BoxMesh_24l41"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yajcb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sg0e7"]
+size = Vector3(15, 6, 0.3)
+
+[node name="Level" type="Node3D" node_paths=PackedStringArray("cubeNode", "meshNode")]
+script = ExtResource("4_yajcb")
+cubeNode = NodePath("Cube")
+meshNode = NodePath("Mesh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(11.797, 0, 0, 0, 1, 0, 0, 0, 11.6315, 0, 0, 0)
+mesh = SubResource("BoxMesh_2ijo2")
+surface_material_override/0 = ExtResource("3_24l41")
+
+[node name="FreeRoamCamera" parent="." instance=ExtResource("1_csqu5")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 1.37844, 0)
+fov = 86.9
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bnfkx")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0222, 0.927057)
+mesh = SubResource("BoxMesh_24l41")
+surface_material_override/0 = SubResource("StandardMaterial3D_yajcb")
+script = ExtResource("4_bnfkx")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158665, 2.57363, -1.17238)
+mesh = SubResource("BoxMesh_sg0e7")
+surface_material_override/0 = ExtResource("3_24l41")
+
+[node name="Mesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158665, 2.57363, 3.38754)
+mesh = SubResource("BoxMesh_sg0e7")
+surface_material_override/0 = ExtResource("3_24l41")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00211183, 0.999998, 0, -0.999998, -0.00211183, 0, 8.47141, 0)
+spot_range = 10.5059

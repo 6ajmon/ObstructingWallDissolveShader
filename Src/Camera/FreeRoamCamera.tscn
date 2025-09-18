@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsrmat2flrtht"]
+
+[ext_resource type="Script" uid="uid://5ocsoljp0vkd" path="res://Src/Camera/FreeRoamCamera.cs" id="1_dxk8m"]
+
+[node name="FreeRoamCamera" type="Camera3D"]
+script = ExtResource("1_dxk8m")
