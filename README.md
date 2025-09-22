@@ -5,7 +5,7 @@
 ### This demo project was made in Godot 4.4.1 for [Obstructing Wall Dissolve Shader](https://godotshaders.com/shader/obstructing-wall-dissolve/).
 
 ## How to use the shader
-You need to set the dissolve and hue noise textures, as well as the object's GlobalPosition in your code. If your object is moving and you want to see it through walls with this shader, update these values every frame.
+You need to set the dissolve and hue noise textures, as well as the object's GlobalPosition in your code. If your object is moving and you want to see it through the walls with this shader, update these values every frame.
 
 
 ## How it works
