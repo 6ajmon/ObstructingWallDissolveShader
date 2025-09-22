@@ -27,7 +27,7 @@ public partial class ShaderUpdater : Node3D
 
     private void CreateNoiseTextures()
     {
-        // Tekstura dissolve noise
+        // dissolve noise
         var dissolveNoise = new FastNoiseLite();
         dissolveNoise.Seed = dissolveSeed;
         dissolveNoise.Frequency = 0.1f;
@@ -39,7 +39,7 @@ public partial class ShaderUpdater : Node3D
         dissolveNoiseTexture3D.Height = 64;
         dissolveNoiseTexture3D.Depth = 64;
 
-        // Tekstura hue noise
+        // hue noise
         var hueNoise = new FastNoiseLite();
         hueNoise.Seed = hueSeed;
         hueNoise.Frequency = 0.05f;
